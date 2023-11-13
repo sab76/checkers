@@ -22,7 +22,7 @@ Move StudentAI::GetMove(Move move)
     vector<vector<Move> > moves = board.getAllPossibleMoves(player);
     for (const auto& checker_moves : moves) {
         for (const auto& m : checker_moves) {
-            if move.seq.size() > 2 {
+            if (move.seq.size() > 2) {
                 board.makeMove(m, player);
                 return m;
             }
