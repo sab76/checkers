@@ -14,4 +14,7 @@ public:
 	virtual Move GetMove(Move board);
 };
 
+private:
+    int countCaptures(const Move& move);
+
 #endif //STUDENTAI_H
