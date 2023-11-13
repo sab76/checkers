@@ -21,7 +21,7 @@ class StudentAI():
             self.color = 1
 
         moves = self.board.get_all_possible_moves(self.color)
-        capturing_moves = self.get_capturing_moves(all_moves)
+        capturing_moves = self.get_capturing_moves(moves)
         if capturing_moves:
             selected_move = choice(capturing_moves)
         else:
