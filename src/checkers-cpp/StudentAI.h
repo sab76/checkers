@@ -12,9 +12,6 @@ public:
     Board board;
 	StudentAI(int col, int row, int p);
 	virtual Move GetMove(Move board);
-	
-private:
-    int countCaptures(const Move& move);
 };
 
 

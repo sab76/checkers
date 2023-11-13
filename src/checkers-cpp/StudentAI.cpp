@@ -11,16 +11,6 @@ StudentAI::StudentAI(int col,int row,int p)
     player = 2;
 }
 
-int StudentAI::countCaptures(const Move& move) {
-    int captureCount = 0;
-    for (int i = 0; i < move.seq.size() - 1; ++i) {
-        if (abs(move.seq[i][0] - move.seq[i + 1][0]) > 1 && abs(move.seq[i][1] - move.seq[i + 1][1]) > 1) {
-            captureCount++;
-        }
-    }
-    return captureCount;
-}
-
 Move StudentAI::GetMove(Move move)
 {
     if (move.seq.empty())
@@ -30,27 +20,14 @@ Move StudentAI::GetMove(Move move)
         board.makeMove(move,player == 1?2:1);
     }
     vector<vector<Move> > moves = board.getAllPossibleMoves(player);
-
-    Move bestMove;
-    int maxCaptures = 0;
-
     for (const auto& checker_moves : moves) {
         for (const auto& m : checker_moves) {
-            if (m.isCapture()) {
-                int captureCount = countCaptures(m);
-                if (captureCount > maxCaptures) {
-                    maxCaptures = captureCount;
-                    bestMove = m;
-                }
+            if (move.isCapture() {
+                board.makeMove(m, player);
+                return m;
             }
         }
-    }
-
-    if (maxCaptures > 0) {
-        board.makeMove(bestMove, player);
-        return bestMove;
-    }
-
+    }	
     int i = rand() % (moves.size());
     vector<Move> checker_moves = moves[i];
     int j = rand() % (checker_moves.size());
