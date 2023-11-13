@@ -20,13 +20,19 @@ Move StudentAI::GetMove(Move move)
         board.makeMove(move,player == 1?2:1);
     }
     vector<vector<Move> > moves = board.getAllPossibleMoves(player);
+    for (const auto& checker_moves : moves) {
+        for (const auto& m : checker_moves) {
+            if move.seq.size() > 2 {
+                board.makeMove(m, player);
+                return m;
+            }
+        }
+    }	
     int i = rand() % (moves.size());
     vector<Move> checker_moves = moves[i];
     int j = rand() % (checker_moves.size());
     Move res = checker_moves[j];
     board.makeMove(res,player);
     return res;
-
-
 }
 
