@@ -9,7 +9,7 @@ def calculate_win_rate():
 
     for _ in range(100):
         output = run_script_and_get_output()
-        if "player 1 wins" or "Tie" in output:
+        if "player 1 wins" in output or "Tie" in output:
             player1_wins += 1
 
     win_rate = player1_wins / 100
