@@ -2,7 +2,7 @@ import subprocess
 import concurrent.futures
 
 def run_script_and_get_output():
-    result = subprocess.run(["python3", "AI_Runner.py", "8", "8", "3", "l", "../src/checkers-cpp/main", "./Sample_AIs/Random_AI/main.py"], capture_output=True, text=True)
+    result = subprocess.run(["python3", "AI_Runner.py", "8", "8", "3", "l", "../src/checkers-python/main.py", "./Sample_AIs/Random_AI/main.py"], capture_output=True, text=True)
     return result.stdout.strip()
 
 def calculate_win_rate():
